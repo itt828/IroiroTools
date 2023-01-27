@@ -1,4 +1,4 @@
-module IroiroTools.Client.views.Home
+module IroiroTools.Client.Views.Home
 
 open Bolero.Html
 

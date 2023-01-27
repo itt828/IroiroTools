@@ -7,13 +7,16 @@ open Bolero.Html
 open Bolero.Remoting
 open Bolero.Remoting.Client
 open Bolero.Templating.Client
-open IroiroTools.Client.views.Home
+open IroiroTools.Client.Views.Home
+open IroiroTools.Client.Views.ImagePreviewer
 
-type Page = | [<EndPoint "/">] Home
+type Page =
+    | [<EndPoint "/">] Home
+    | [<EndPoint "/img">] ImageViewer
 
 type Model = { page: Page }
 
-let initModel = { page = Home }, Cmd.none
+let initModel = { page = ImageViewer }, Cmd.none
 
 type Message = SetPage of Page
 
@@ -23,7 +26,11 @@ let update message model =
 
 let router = Router.infer SetPage (fun model -> model.page)
 
-let view model dispatch = homePage
+let view model dispatch =
+
+    match model.page with
+    | Home -> homePage
+    | ImageViewer -> ImagePreviewerPage()
 
 type MyApp() =
     inherit ProgramComponent<Model, Message>()

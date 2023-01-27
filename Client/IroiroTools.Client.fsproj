@@ -4,7 +4,8 @@
     <TargetFramework>net6.0</TargetFramework>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="views/Home.fs" />
+    <Compile Include="Views/ImagePreviewer.fs" />
+    <Compile Include="Views/Home.fs" />
     <Compile Include="Main.fs" />
     <Compile Include="Startup.fs" />
   </ItemGroup>
